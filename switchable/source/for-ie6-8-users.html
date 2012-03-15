@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <!--[if !lt IE 9]><![IGNORE[--><![IGNORE[]]><meta http-equiv="refresh" content="0; url=/" /><!--<![endif]-->
+  {% include google-analytics.html %}
+</head>
+
+<body>
+<img src="/images/logo-for-ie.png" width="720" height="80" alt="jQuery.Switchable" />
+<h2>Oh~~No~~！亲，你当前正在使用的浏览器是个奇葩哟～</h2>
+<h2>想要获得更好的浏览体验，或者想要看文档，请使用至少IE9及以上版本的浏览器，或者直接换非IE浏览器。</h2>
+<h2>不过我还是好心让你可以正常访问demo页面，虽然丑了点，但是JavaScript还是能正常运行的。</h2>
+<h1>Demos:</h1>
+<ol>
+  {% for post in site.tags.demo reversed %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ol>
+</body>
+</html>

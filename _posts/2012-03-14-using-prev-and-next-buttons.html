@@ -1,0 +1,96 @@
+---
+layout: default
+title: "Using prev/next buttons"
+date: 2012-03-14 18:37
+comments: true
+tags: demo
+---
+
+{% capture demo %}
+  <!-- styles for this demo -->
+  <style>
+  #slide {
+    /* Required Styles */
+    position:relative;
+    width:550px;
+    height:310px;
+    overflow:hidden;
+
+    border:10px solid #444;
+    border-radius:5px;
+    box-shadow:0 0 6px rgba(0, 0, 0, .4);
+  }
+  #slide img {
+    display:block;
+    position:absolute;
+    width:550px;
+    height:310px;
+  }
+  .switchable-triggers {
+    width:100%;
+    height:30px;
+    overflow-y:hidden;
+    line-height:30px;
+    text-align:center;
+  }
+  .switchable-triggers li {
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin:0 3px;
+    color:#c6c6c6;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 2px 1px rgba(0, 0, 0, .4);
+    cursor:pointer;
+  }
+  .switchable-triggers li.current {
+    color:#8ab516;
+  }
+  </style>
+
+  <div id="slide">{% for i in (1..7) %}
+    <img src="/images/p{{ i }}.jpg" />{% endfor %}
+  </div>
+  <div class="button">
+    <a href="#" id="prev" class="float-l disabled">Prev</a>
+    <a href="#" id="next" class="float-r">Next</a>
+  </div>
+{% endcapture %}
+
+{% capture js %}
+$(function() {
+  $('#slide').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    effect: 'fade',
+    /* fade effect only supports steps == 1 */
+    // steps: 1,
+    easing: 'ease-in-out',
+    loop: false,
+    prev: '#prev',
+    next: $('#next'),
+    onSwitch: function(event, currentIndex) {
+      var api = this;
+      api.prevBtn.toggleClass('disabled', currentIndex === 0);
+      api.nextBtn.toggleClass('disabled', currentIndex === api.length - 1);
+    }
+  });
+});
+{% endcapture %}
+
+{% capture css %}
+/* Required Styles */
+#slide {
+  position: relative;
+  width: 550px;
+  height: 310px;
+  overflow: hidden;
+}
+#slide img {
+  position: absolute;
+}
+{% endcapture %}
+
+
+{% include demo-tmpl.html %}

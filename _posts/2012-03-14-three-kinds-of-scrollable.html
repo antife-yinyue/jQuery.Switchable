@@ -1,0 +1,196 @@
+---
+layout: default
+title: "Three kinds of scrollable"
+date: 2012-03-14 18:38
+comments: true
+tags: demo
+---
+
+{% capture demo %}
+  <!-- styles for this demo -->
+  <style>
+  /**
+   * Horizontal
+   */
+  #scrollable-1 {
+    position:relative;
+    width:650px;
+    height:125px;
+    overflow:hidden;
+  }
+  #scrollable-1 li {
+    float:left;
+    margin-right:15px;
+  }
+
+  /**
+   * Vertical, Single-col
+   */
+  #scrollable-2 {
+    position:relative;
+    height:260px;
+    overflow:hidden;
+  }
+  #scrollable-2 li {
+    margin-bottom:15px;
+  }
+
+  /**
+   * Vertical, Multi-col
+   */
+  #scrollable-3 {
+    position:relative;
+    height:125px;
+    overflow:hidden;
+  }
+  #scrollable-3 li {
+    float:left;
+    margin:0 15px 15px 0;
+  }
+
+  .demo { width: 650px; }
+  .demo img {
+    display:block;
+    width:195px;
+    height:110px;
+    border:5px solid #444;
+    border-radius:4px;
+    box-shadow:0 0 6px rgba(0, 0, 0, .4);
+  }
+  .switchable-triggers li {
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin:0 3px;
+    color:#c6c6c6;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 2px 1px rgba(0, 0, 0, .4);
+    cursor:pointer;
+  }
+  .switchable-triggers li.current { color:#8ab516; }
+  </style>
+
+  <!-- Horizontal -->
+  <div id="scrollable-1">
+    <ul>{% for i in (1..6) %}
+      <li><img src="/images/p{{ i }}.jpg" /></li>{% endfor %}
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- Vertical, Single-col -->
+  <div id="scrollable-2">
+    <ul>{% for i in (1..6) %}
+      <li><img src="/images/p{{ i }}.jpg" /></li>{% endfor %}
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- Vertical, Multi-col -->
+  <div id="scrollable-3">
+    <ul>{% for i in (1..6) %}
+      <li><img src="/images/p{{ i }}.jpg" /></li>{% endfor %}
+    </ul>
+  </div>
+{% endcapture %}
+
+{% capture js %}
+$(function() {
+  /**
+   * Horizontal
+   */
+  $('#scrollable-1').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollLeft',
+    steps: 2,
+    visible: 3, // important
+    end2end: true,
+
+    autoplay: true
+  });
+
+  /**
+   * Vertical, Single-col
+   */
+  $('#scrollable-2').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollUp',
+    steps: 2,
+    visible: 2, // important
+
+    autoplay: true
+  });
+
+  /**
+   * Vertical, Multi-col
+   */
+  $('#scrollable-3').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollDown',
+    steps: 2,
+    visible: 2, // important
+    end2end: true,
+    groupSize: [440, 135], // required
+    // 440 = 2 * ( 195[width] + 10[border] + 15[margin] )
+    // 135 = 110[height] + 10[border] + 15[margin]
+
+    autoplay: true
+  });
+});
+{% endcapture %}
+
+{% capture css %}
+/* Required Styles */
+
+/**
+ * Horizontal
+ */
+#scrollable-1 {
+  position: relative;
+  width: 650px;
+  height: 125px;
+  overflow: hidden;
+}
+#scrollable-1 li {
+  float: left;
+}
+
+/**
+ * Vertical, Single-col
+ */
+#scrollable-2 {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+/**
+ * Vertical, Multi-col
+ */
+#scrollable-3 {
+  position: relative;
+  height: 125px;
+  overflow: hidden;
+}
+#scrollable-3 li {
+  float: left;
+}
+{% endcapture %}
+
+
+{% include demo-tmpl.html %}

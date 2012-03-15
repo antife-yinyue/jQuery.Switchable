@@ -1,0 +1,81 @@
+---
+layout: default
+title: "Common triggers"
+date: 2012-03-14 18:40
+comments: true
+tags: demo
+---
+
+{% capture demo %}
+  <!-- styles for this demo -->
+  <style>
+  .slide {
+    /* Required Styles */
+    position:relative;
+    width:550px;
+    height:310px;
+    overflow:hidden;
+
+    border:10px solid #444;
+    border-radius:5px;
+    box-shadow:0 0 6px rgba(0, 0, 0, .4);
+  }
+  .slide img {
+    display:block;
+    width:550px;
+    height:310px;
+  }
+  #slide-1 img {
+    position:absolute;
+  }
+  .switchable-triggers {
+    width:570px;
+    height:30px;
+    overflow-y:hidden;
+    line-height:30px;
+    text-align:center;
+  }
+  .switchable-triggers li {
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin:0 3px;
+    color:#c6c6c6;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 2px 1px rgba(0, 0, 0, .4);
+    cursor:pointer;
+  }
+  .switchable-triggers li.current {
+    color:#8ab516;
+  }
+  </style>
+
+  <div class="slide" id="slide-1">{% for i in (1..7) %}
+    <img src="/images/p{{ i }}.jpg" />{% endfor %}
+  </div>
+
+  <div class="slide" id="slide-2">
+    <ul>{% for i in (1..7) %}
+      <li><img src="/images/p{{ i }}.jpg" /></li>{% endfor %}
+    </ul>
+  </div>
+{% endcapture %}
+
+{% capture js %}
+$(function() {
+  $('#slide-1').switchable({
+    triggers: '&bull;',
+    effect: 'fade'
+  });
+
+  $('#slide-2').switchable({
+    triggers: $('.switchable-triggers > li'),
+    panels: 'li',
+    effect: 'scrollUp'
+  });
+});
+{% endcapture %}
+
+
+{% include demo-tmpl.html %}

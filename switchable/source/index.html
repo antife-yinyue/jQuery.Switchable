@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<section>
+  <header>
+    <h1>Why jQuery.Switchable?</h1>
+  </header>
+
+  <ul class="reasons">
+    <li>Tabs, Slide, Scrollable &amp; Accordion, 4 in 1.</li>
+    <li>CSS3 Transitions with jQuery fallbacks, progressive enhancement.</li>
+    <li>Highly customizable configurations.</li>
+    <li>Possible to create the triggers automatically.</li>
+    <li>Intelligently trigger.</li>
+    <li>Supported in all major browsers, include ie6.</li>
+    <li>Ultra lightweight (4kb, minified &amp; gzipped).</li>
+    <li>Free to use under the MIT license.</li>
+  </ul>
+</section>
+
+<section id="demos">
+  <header>
+    <h1>Demos</h1>
+  </header>
+
+  <ol>
+    {% for post in site.tags.demo reversed %}
+    <li><a href="{{ post.url }}" target="_blank">{{ post.title }}</a></li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section>
+  <header>
+    <h1>Documentation</h1>
+  </header>
+
+  {% include documentation.html %}
+</section>

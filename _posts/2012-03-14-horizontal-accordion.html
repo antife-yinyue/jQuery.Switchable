@@ -1,0 +1,90 @@
+---
+layout: default
+title: "Horizontal accordion"
+date: 2012-03-14 18:39
+comments: true
+tags: demo
+---
+
+{% capture demo %}
+  <!-- styles for this demo -->
+  <style>
+  #accordion {
+    width:710px;
+    height:310px;
+    overflow:hidden;
+  }
+  #accordion li {
+    position:relative;
+    float:left;
+    height:100%;
+    border:0;/* required */
+  }
+  #accordion img {
+    display:block;
+    width:550px;
+    height:310px;
+  }
+  #accordion b {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:38px;
+    height:100%;
+    border-left:2px solid #323232;
+    background:url(about:blank)\9;
+    cursor:pointer;
+  }
+  :root #accordion b { background:url(about:blank); }
+
+  .demo {
+    width: 720px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  </style>
+
+  <ul class="clearfix" id="accordion">
+    {% for i in (1..5) %}
+    <li>
+      <img src="/images/p{{ i }}.jpg" />
+      <b></b>
+    </li>
+    {% endfor %}
+  </ul>
+{% endcapture %}
+
+{% capture js %}
+$(function() {
+  var Accordion = $('#accordion');
+
+  Accordion.switchable({
+    triggers: Accordion.find('b'),
+    triggerType: 'click',
+    effect: 'horizAccordion',
+    easing: 'cubic-bezier(.1, .5, .1, 1)',
+    customProps: {
+      width: '40px'
+    },
+    autoplay: true,
+    beforeSwitch: function(event, toIndex) {
+      // if beforeSwitch() returns 'false', the switch event stops
+      return this.index !== toIndex;
+    }
+  });
+});
+{% endcapture %}
+
+{% capture css %}
+/*
+ * Remember to set the border-width for the accordion's panels,
+ * even without border
+ */
+#accordion li {
+  border: 0;
+}
+{% endcapture %}
+
+
+{% include demo-tmpl.html %}

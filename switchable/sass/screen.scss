@@ -1,0 +1,342 @@
+$base-font-size: 15px;
+$base-line-height: 1.6;
+$text-color: #c6c6c6;
+$link-color: #84bcde;
+
+
+// https://github.com/eDoctor/eDr_assets_Sass
+@import './_base/base';
+// @import './_base/_typo_';
+
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'Slackey';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Slackey'), url('/fonts/Slackey-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'SecretTypewriterRegular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SecretTypewriterRegular'), url('/fonts/veteran_typewriter-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'LeagueGothic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('LeagueGothic'), url('/fonts/league_gothic-webfont.woff') format('woff');
+}
+
+html { background: #333 url(/images/bg.jpg); }
+body {
+  border-top: 1px solid #000;
+  background: url(/images/heavenly-glow.png) no-repeat center top;
+  _background-image: url(/images/heavenly-glow-for-ie6.jpg);
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, .75) inset);
+}
+code {
+  font-family: Monaco, Consolas, 'Lucida Console', monospace;
+}
+iframe {
+  border: 0;
+}
+hr {
+  height: 5px;
+  margin: 25px 0 20px;
+  border: solid #121212;
+  border-width: 1px 0 0;
+  @include box-shadow(0 1px rgba(255, 255, 255, .07) inset);
+}
+
+@include selection($white, #8ab516);
+
+
+/* Layout */
+section, nav, .header, .footer .inner {
+  width: 720px;
+  margin: 0 auto;
+}
+.header {
+  position: relative;
+  margin: 10px auto 40px;
+}
+.footer {
+  display: block\9;
+  margin-top: 25px;
+  background: rgba(0, 0, 0, .1);
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, .75) inset);
+
+  .inner {
+    position: relative;
+  }
+  p {
+    margin-bottom: 0;
+    padding: 25px 0;
+    color: #111111;
+    text-shadow: 0 1px 1px rgba(225, 225, 225, .15);
+  }
+  a { color: #111111; }
+  em {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 80px;
+    height: 55px;
+    overflow: hidden;
+    background: url(/images/html5css3.png);
+    text-indent: -999em;
+  }
+}
+
+/* LOGO */
+.logo {
+  vertical-align: text-bottom;
+
+  img {
+    display: block;
+    width: 720px;
+    height: 80px;
+  }
+  em {
+    display: inline-block;
+    background: #8ab516;
+    @include box-shadow(1px 2px 2px rgba(0, 0, 0, .5), 1px 2px 2px rgba(0, 0, 0, .5) inset);
+  }
+  .do {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+  }
+  .re {
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+  }
+  .mi {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+  }
+  strong {
+    padding-left: 15px;
+    color: #fff;
+    font-size: 50px;
+    font-family: 'Slackey', $base-font-family;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+  }
+}
+
+/* Navigation */
+nav {
+  height: 52px;
+
+  ul {
+    float: right;
+    height: 40px;
+    padding: 6px;
+    border-radius: 6px;
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .75) inset, 0 -1px rgba(255, 255, 255, .15) inset);
+  }
+  li { display: inline; }
+  a {
+    display: inline-block;
+    float: left;
+    height: 40px;
+    margin-right: 5px;
+    padding: 0 20px;
+    background: #343434 url(/images/nav-item-pattern.png);
+    @include background(linear-gradient(top, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, 0) 100%), url(/images/nav-item-pattern.png));
+    @include box-shadow(0 1px 1px rgba(0, 0, 0, .6), 0 1px rgba(255, 255, 255, .15) inset);
+    color: #8c8c8c;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+    text-shadow: -1px -1px #000;
+
+    &.current {
+      background: #7f9b15 url(/images/noise.png);
+      @include background(url(/images/noise.png), linear-gradient(top, #7c9911 0%, #829e1c 50%, #739102 51%, #7f9b15 100%));
+      @include box-shadow(0 0 1px rgba(255, 255, 255, .5) inset, 0 1px rgba(255, 255, 255, .5) inset, 0 2px 4px rgba(0, 0, 0, .6));
+      color: #fff;
+    }
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 0 2px rgba(255, 255, 255, .5);
+    }
+  }
+  li:first-of-type a {
+    border-radius: 4px 0 0 4px;
+  }
+  li:last-of-type a {
+    margin-right: 0;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+
+/* Titles in section */
+section {
+  &:not(:first-of-type) {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #121212;
+    @include box-shadow(0 1px rgba(255, 255, 255, .07) inset);
+  }
+
+  > ol {
+    margin-left: 1.9em;
+    list-style: decimal;
+  }
+
+  > h2 {
+    margin-top: 2em;
+    font: normal 28px 'SecretTypewriterRegular', $base-font-family;
+  }
+
+  > h3 {
+    margin-top: 1.5em;
+    font: normal 26px 'LeagueGothic', $base-font-family;
+  }
+}
+header {
+  > h1 {
+    font-family: 'SecretTypewriterRegular', $base-font-family;
+    font-size: 30px;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+
+    section:first-of-type > & {
+      font-size: 36px;
+    }
+  }
+}
+header, h2 {
+  + h3 {
+    margin-top: 0.5em;
+  }
+}
+
+
+/* The reason why jQuery.Switchable is that ... */
+.reasons {
+  margin-left: 24px;
+  list-style: url(/images/icon-check.png);
+  color: #cdcdcd;
+  font-size: 20px;
+}
+
+/* Documentation */
+.doc {
+  margin-left: 10px;
+
+  dt {
+    margin-top: 22px;
+    padding-bottom: 5px;
+    text-shadow: -1px -1px #000;
+
+    &:first-of-type { margin-top: 10px; }
+  }
+  strong {
+    margin-right: 8px;
+    color: #e8bf69;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+  }
+  code {
+    display: inline-block;
+    padding: 0 .2em;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .3);
+    @include box-shadow(0 1px rgba(255, 255, 255, .1), 0 1px 7px rgba(0, 0, 0, .8) inset);
+    color: #a5c160;
+  }
+}
+.doc ul, .table-of-contents {
+  margin-left: 1.3em;
+  list-style: disc;
+}
+.table-of-contents ul {
+  margin-left: 1.3em;
+  list-style: circle;
+}
+
+
+/* Demos */
+.demo {
+  width: 570px;
+  overflow-x: hidden;
+  padding: 5em 15px 0;
+
+  .button {
+    width: 100%;
+    height: 32px;
+    margin-top: 10px;
+    text-align: center;
+
+    a {
+      font: normal 25px 'LeagueGothic', 'Lucida Grande', arial, sans-serif;
+      text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+
+      &.disabled {
+        color: #c6c6c6;
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+
+/**
+ * Highlight
+ * Railscasts from Textmate
+ */
+pre[class^='sh_'], .sh_sourcecode {
+  overflow-x: auto;
+  margin-top: 1em;
+  padding: 8px 12px;
+  border-left: 6px solid #444;
+  color: #cdcdcd;
+  text-shadow: -1px -1px #000;
+}
+.sh_sourcecode {
+  .sh_type, .sh_keyword, .sh_selector, .sh_preproc {
+    color: #e8bf69;
+  }
+  .sh_string, .sh_regexp, .sh_number, .sh_specialchar {
+    color: #a5c160;
+  }
+  .sh_property, .sh_value {
+    color: #6e9cbd;
+  }
+  .sh_function {
+    color: #da4938;
+  }
+  .sh_comment {
+    color: #bc9357;
+    font-style: italic;
+    text-shadow: none;
+  }
+}
+.sh_commands code::before {
+  margin-right: 10px;
+  content: "$";
+}
+
+
+/* 404 */
+.page-not-found {
+  padding-top: 50px;
+  font-size: 20px;
+  text-align: center;
+
+  em {
+    font: {
+      size: 150px;
+      weight: 800;
+    }
+    letter-spacing: 8px;
+    text-shadow: -1px 0 #888, -16px 0 #444, -17px 0 #888;
+    @include skew(-5deg, -3deg);
+  }
+}

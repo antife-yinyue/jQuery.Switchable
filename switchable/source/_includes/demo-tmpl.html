@@ -1,0 +1,34 @@
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+{{ demo }}
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  {% sh %}{{ js }}{% endsh %}
+
+  {% if css %}
+  <!-- Highlight CSS -->
+  {% sh :css %}{{ css }}{% endsh %}
+  {% endif %}
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{{ root_url }}/javascripts/jquery.switchable.min.js"></script>
+<script>{{ js }}</script>
+<script src="{{ root_url }}/javascripts/sh.min.js"></script>
+{% include disqus.html %}
