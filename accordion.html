@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Accordion - jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+
+  <!-- styles for this demo -->
+  <style>
+  #accordion {
+    width:552px;
+    overflow:hidden;
+  }
+  #accordion dt {
+    height:34px;
+    margin-top:6px;
+    padding-left:20px;
+    background:#343434 url(/images/nav-item-pattern.png);
+    background:-moz-linear-gradient(top, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, 0) 100%),
+               url(/images/nav-item-pattern.png);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, .1)), color-stop(100%,rgba(255, 255, 255, 0))),
+               url(/images/nav-item-pattern.png);
+    background:-webkit-linear-gradient(top, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, 0) 100%),
+               url(/images/nav-item-pattern.png);
+    background:-o-linear-gradient(top, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, 0) 100%),
+               url(/images/nav-item-pattern.png);
+    background:linear-gradient(top, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, 0) 100%),
+               url(/images/nav-item-pattern.png);
+    -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .6), 0 1px rgba(255, 255, 255, .15) inset;
+    box-shadow:0 1px 1px rgba(0, 0, 0, .6), 0 1px rgba(255, 255, 255, .15) inset;
+    color:#8c8c8c;
+    font-weight:bold;
+    line-height:34px;
+    text-shadow:-1px -1px #000;
+    cursor:pointer;
+  }
+  #accordion dt.current {
+    background:#7f9b15 url(/images/noise.png);
+    background:url(/images/noise.png),
+               -moz-linear-gradient(top, #7c9911 0%, #829e1c 50%, #739102 51%, #7f9b15 100%);
+    background:url(/images/noise.png),
+               -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7c9911), color-stop(50%,#829e1c), color-stop(51%,#739102), color-stop(100%,#7f9b15));
+    background:url(/images/noise.png),
+               -webkit-linear-gradient(top, #7c9911 0%, #829e1c 50%, #739102 51%, #7f9b15 100%);
+    background:url(/images/noise.png),
+               -o-linear-gradient(top, #7c9911 0%, #829e1c 50%, #739102 51%, #7f9b15 100%);
+    background:url(/images/noise.png),
+               linear-gradient(top, #7c9911 0%, #829e1c 50%, #739102 51%, #7f9b15 100%);
+    -webkit-box-shadow:0 0 1px rgba(255, 255, 255, .5) inset, 0 1px rgba(255, 255, 255, .5) inset, 0 2px 4px rgba(0, 0, 0, .6);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5) inset, 0 1px rgba(255, 255, 255, .5) inset, 0 2px 4px rgba(0, 0, 0, .6);
+    color:#fff;
+  }
+  #accordion dd,
+  #accordion img {
+    display:block;
+    width:550px;
+    height:310px;
+  }
+  #accordion dd {
+    border: 1px solid #343434;
+    border-top-width: 0;
+  }
+  #accordion dt.current + dd {
+    border-color:#7f9b15;
+  }
+  </style>
+
+  <dl id="accordion">
+    <dt>First Panel</dt>
+    <dd><img src="/images/p1.jpg" /></dd>
+
+    <dt>Second Panel</dt>
+    <dd><img src="/images/p2.jpg" /></dd>
+
+    <dt>Third Panel</dt>
+    <dd><img src="/images/p3.jpg" /></dd>
+  </dl>
+
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  <pre class='sh_javascript'><code>$(function() {
+</code><code>  var Accordion = $('#accordion');
+</code><code>
+</code><code>  Accordion.switchable({
+</code><code>    triggers: Accordion.find('dt'),
+</code><code>    triggerType: 'click',
+</code><code>    panels: 'dd',
+</code><code>    effect: 'accordion',
+</code><code>    multiple: true,
+</code><code>    initIndex: null // new value only for accordion
+</code><code>  });
+</code><code>});</code></pre>
+
+  
+  <!-- Highlight CSS -->
+  <pre class='sh_css'><code>/*
+</code><code> * Remember to set the border-width for the accordion's panels,
+</code><code> * even without border
+</code><code> */
+</code><code>#accordion dd {
+</code><code>  border: 1px solid #343434;
+</code><code>  border-top-width: 0;
+</code><code>}</code></pre>
+  
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/javascripts/jquery.switchable.min.js"></script>
+<script>
+$(function() {
+  var Accordion = $('#accordion');
+
+  Accordion.switchable({
+    triggers: Accordion.find('dt'),
+    triggerType: 'click',
+    panels: 'dd',
+    effect: 'accordion',
+    multiple: true,
+    initIndex: null // new value only for accordion
+  });
+});
+</script>
+<script src="/javascripts/sh.min.js"></script>
+<script>var disqus_shortname="jsw0528",disqus_identifier=disqus_url="http://switchable.mrzhang.me/accordion.html",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

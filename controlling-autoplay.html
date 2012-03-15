@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Controlling autoplay - jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+
+  <!-- styles for this demo -->
+  <style>
+  #slide {
+    /* Required Styles */
+    position: relative;
+    width: 550px;
+    height: 310px;
+    overflow: hidden;
+
+    border: 10px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+  }
+  #slide li {
+    float: left;
+  }
+  #slide img {
+    display: block;
+    width: 550px;
+    height: 310px;
+  }
+  .switchable-triggers {
+    position: absolute;
+    right: 3px;
+    bottom: 6px;
+  }
+  .switchable-triggers li {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .7);
+    color: #444;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .switchable-triggers li.current {
+    background: rgba(138, 181, 22, .7);
+    color: #fff;
+  }
+  .button {
+    width: 570px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .button a {
+    font: normal 25px LeagueGothic;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+  }
+  </style>
+
+  <div id="slide">
+    <ul>
+      <li><img src="/images/p1.jpg" /></li>
+      <li><img src="/images/p2.jpg" /></li>
+      <li><img src="/images/p3.jpg" /></li>
+      <li><img src="/images/p4.jpg" /></li>
+      <li><img src="/images/p5.jpg" /></li>
+      <li><img src="/images/p6.jpg" /></li>
+      <li><img src="/images/p7.jpg" /></li>
+    </ul>
+  </div>
+  <div class="button">
+    <a href="#" id="j-button">Play</a>
+  </div>
+
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  <pre class='sh_javascript'><code>$(function() {
+</code><code>  var Slide = $('#slide').switchable({
+</code><code>    putTriggers: 'appendTo',
+</code><code>    panels: 'li',
+</code><code>    initIndex: -1, // display the last panel
+</code><code>    effect: 'scrollRight', // taking effect when autoplay == true
+</code><code>    easing: 'cubic-bezier(.455, .03, .515, .955)', // equal to 'easeInOutQuad'
+</code><code>    end2end: true, // if set to true, loop == true
+</code><code>    loop: false, // not taking effect, because end2end == true
+</code><code>    autoplay: true,
+</code><code>    interval: 5,
+</code><code>    api: true // if set to true, Switchable returns API
+</code><code>  }).pause();
+</code><code>
+</code><code>  var btn = $('#j-button');
+</code><code>  btn.click(function(e){
+</code><code>    e.preventDefault();
+</code><code>
+</code><code>    if ( Slide.paused ) {
+</code><code>      Slide.play();
+</code><code>      btn.text('Pause');
+</code><code>    }
+</code><code>    else {
+</code><code>      Slide.pause();
+</code><code>      btn.text('Play');
+</code><code>    }
+</code><code>  });
+</code><code>});</code></pre>
+
+  
+  <!-- Highlight CSS -->
+  <pre class='sh_css'><code>/* Required Styles */
+</code><code>#slide {
+</code><code>  position: relative;
+</code><code>  width: 550px;
+</code><code>  height: 310px;
+</code><code>  overflow: hidden;
+</code><code>}
+</code><code>#slide li {
+</code><code>  float: left;
+</code><code>}</code></pre>
+  
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/javascripts/jquery.switchable.min.js"></script>
+<script>
+$(function() {
+  var Slide = $('#slide').switchable({
+    putTriggers: 'appendTo',
+    panels: 'li',
+    initIndex: -1, // display the last panel
+    effect: 'scrollRight', // taking effect when autoplay == true
+    easing: 'cubic-bezier(.455, .03, .515, .955)', // equal to 'easeInOutQuad'
+    end2end: true, // if set to true, loop == true
+    loop: false, // not taking effect, because end2end == true
+    autoplay: true,
+    interval: 5,
+    api: true // if set to true, Switchable returns API
+  }).pause();
+
+  var btn = $('#j-button');
+  btn.click(function(e){
+    e.preventDefault();
+
+    if ( Slide.paused ) {
+      Slide.play();
+      btn.text('Pause');
+    }
+    else {
+      Slide.pause();
+      btn.text('Play');
+    }
+  });
+});
+</script>
+<script src="/javascripts/sh.min.js"></script>
+<script>var disqus_shortname="jsw0528",disqus_identifier=disqus_url="http://switchable.mrzhang.me/controlling-autoplay.html",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

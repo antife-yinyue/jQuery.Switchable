@@ -1,1 +1,283 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  <!--[if lt IE 9]><meta http-equiv="refresh" content="0; url=/for-ie6-8-users.html" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+<section>
+  <header>
+    <h1>Why jQuery.Switchable?</h1>
+  </header>
+
+  <ul class="reasons">
+    <li>Tabs, Slide, Scrollable &amp; Accordion, 4 in 1.</li>
+    <li>CSS3 Transitions with jQuery fallbacks, progressive enhancement.</li>
+    <li>Highly customizable configurations.</li>
+    <li>Possible to create the triggers automatically.</li>
+    <li>Intelligently trigger.</li>
+    <li>Supported in all major browsers, include ie6.</li>
+    <li>Ultra lightweight (4kb, minified &amp; gzipped).</li>
+    <li>Free to use under the MIT license.</li>
+  </ul>
+</section>
+
+<section id="demos">
+  <header>
+    <h1>Demos</h1>
+  </header>
+
+  <ol>
+    
+    <li><a href="/controlling-autoplay.html" target="_blank">Controlling autoplay</a></li>
+    
+    <li><a href="/using-prev-and-next-buttons.html" target="_blank">Using prev/next buttons</a></li>
+    
+    <li><a href="/three-kinds-of-scrollable.html" target="_blank">Three kinds of scrollable</a></li>
+    
+    <li><a href="/accordion.html" target="_blank">Accordion</a></li>
+    
+    <li><a href="/horizontal-accordion.html" target="_blank">Horizontal accordion</a></li>
+    
+    <li><a href="/common-triggers.html" target="_blank">Common triggers</a></li>
+    
+    <li><a href="/using-switchable-animation.html" target="_blank">Using $.switchable.Anim()</a></li>
+    
+  </ol>
+</section>
+
+<section>
+  <header>
+    <h1>Documentation</h1>
+  </header>
+
+  <h3>Configurations</h3>
+<dl class="doc">
+  <dt><strong>triggers</strong>(Boolean, String, jQuery)</dt>
+  <dd>If set to <code>false</code>, triggers will be disabled.</dd>
+  <dd>If set to <code>true</code>, triggers will be created automatically, and the texts are natural numbers.</dd>
+  <dd>If set to a string, triggers will also be created automatically, and the string is triggers&#8217;s text.</dd>
+  <dd>If set to a jQuery object, just it is.</dd>
+  <dd>Defaults to <code>true</code>.</dd>
+
+  <dt><strong>putTriggers</strong>(String)</dt>
+  <dd>Defaults to <code>"insertAfter"</code>.</dd>
+
+  <dt><strong>triggersWrapCls</strong>(String)</dt>
+  <dd>Class name for triggers&#8217;s parent element. This option will be available when the triggers were created automatically.</dd>
+  <dd>Defaults to <code>"switchable-triggers"</code>.</dd>
+
+  <dt><strong>currentTriggerCls</strong>(String)</dt>
+  <dd>Class name for current trigger.</dd>
+  <dd>Defaults to <code>"current"</code>.</dd>
+
+  <dt><strong>panels</strong>(Selector, jQuery)</dt>
+  <dd>Use a selector or a jQuery object to set panels.</dd>
+  <dd>Defaults to <code>null</code> and will use <code>.children()</code> method to get panels from the container.</dd>
+
+  <dt><strong>steps</strong>(Integer)</dt>
+  <dd>Set the number of panels which switch together.</dd>
+  <dd>Defaults to <code>1</code>.</dd>
+
+  <dt><strong>triggerType</strong>(String)</dt>
+  <dd><code>mouse</code> or <code>click</code>. If set to <code>mouse</code>, click event is also available.</dd>
+  <dd>Defaults to <code>"mouse"</code>.</dd>
+
+  <dt><strong>delay</strong>(Number)</dt>
+  <dd>Set the delay time of trigger event in seconds when <code>triggerType</code> is <code>mouse</code>.</dd>
+  <dd>Defaults to <code>0.1</code> seconds.</dd>
+
+  <dt><strong>initIndex</strong>(Integer)</dt>
+  <dd>Specifies the panels those are initially displayed when the page loads. A negative integer is available.</dd>
+  <dd>Defaults to <code>0</code> and will start on the first panel.</dd>
+
+  <dt><strong>effect</strong>(String)</dt>
+  <dd>
+    The effect to be used when panels are switching. Here are the available built-in effects:
+    <ul>
+      <li><code>none</code>: a simple show/hide effect.</li>
+      <li><code>fade</code>: panels are gradually shown from zero to full opacity.</li>
+      <li><code>scrollLeft</code>, <code>scrollRight</code>, <code>scrollUp</code>, <code>scrollDown</code>: as the name suggests. The <code>scrollRight</code> and <code>scrollDown</code> effects will take effect only when panels autoplay.</li>
+      <li><code>accordion</code>, <code>horizAccordion</code>: as the name suggests.</li>
+    </ul>
+  </dd>
+  <dd>Defaults to <code>"none"</code>.</dd>
+
+  <dt><strong>easing</strong>(String)</dt>
+  <dd>Set the easing of the switch animation. <code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, <code>cubic-bezier(x1, y1, x2, y2)</code> are available.</dd>
+  <dd>Defaults to <code>"ease"</code>.</dd>
+
+  <dt><strong>duration</strong>(Number)</dt>
+  <dd>Set the duration of the switch animation in seconds.</dd>
+  <dd>Defaults to <code>0.5</code> seconds.</dd>
+
+  <dt><strong>loop</strong>(Boolean)</dt>
+  <dd>When switch to the first / last panel, whether switch to the last / first panel.</dd>
+  <dd>Defaults to <code>true</code>.</dd>
+
+  <dt><strong>beforeSwitch</strong>(Callback)</dt>
+  <dd>Function called before switch animation. If it returns <code>false</code>, the switch will be stopped.</dd>
+  <dd>The <code>this</code> variable points to the API.</dd>
+  <dd>Defaults to <code>null</code>.</dd>
+
+  <dt><strong>onSwitch</strong>(Callback)</dt>
+  <dd>Function called at the start of switch animation.</dd>
+  <dd>Defaults to <code>null</code>.</dd>
+
+  <dt><strong>api</strong>(Boolean)</dt>
+  <dd>Defaults to <code>false</code>.</dd>
+</dl>
+
+<h3>Properties</h3>
+<dl class="doc">
+  <dt><strong>config</strong>(Returns: Object)</dt>
+  <dd>Returns the configuration object for the jQuery.Switchable instance. This object can be modified and the changes are dynamically reflected in the behaviour of the instance.</dd>
+
+  <dt><strong>container</strong>(Returns: jQuery)</dt>
+  <dd>Returns the container for the panels as a jQuery object.</dd>
+
+  <dt><strong>triggers</strong>(Returns: jQuery)</dt>
+  <dd>Returns the triggers as a jQuery object.</dd>
+
+  <dt><strong>panels</strong>(Returns: jQuery)</dt>
+  <dd>Returns the panels as a jQuery object.</dd>
+
+  <dt><strong>length</strong>(Returns: Integer)</dt>
+  <dd>Returns the amount of panel groups.</dd>
+
+  <dt><strong>index</strong>(Returns: Integer)</dt>
+  <dd>Returns the current index number.</dd>
+
+  <dt><strong>willTo( [isBackward] )</strong>(Returns: Integer or Boolean)</dt>
+  <dd>Returns the index number of the panels will be displayed, generally used when the <code>autoplay</code> is set to <code>true</code>. If returns <code>false</code>, means that the animation has been stopped.</dd>
+</dl>
+
+<h3>Methods</h3>
+<dl class="doc">
+  <dt><strong>switchTo( toIndex[, direction] )</strong>(Returns: API)</dt>
+</dl>
+
+<hr />
+<p>In addition to the above common API, some effects and plugins have their own API:</p>
+<ul class="table-of-contents">
+  <li>
+    Effects:
+    <ul>
+      <li><a href="#api.effect.scroll">scrollLeft / scrollRight / scrollUp / scrollDown</a></li>
+      <li><a href="#api.effect.accordion">accordion / horizAccordion</a></li>
+    </ul>
+  </li>
+  <li>
+    Plugins:
+    <ul>
+      <li><a href="#api.plugin.autoplay">autoplay</a></li>
+      <li><a href="#api.plugin.carousel">carousel</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="api.effect.scroll">Scroll Effects</h2>
+
+<h3>Configurations</h3>
+<dl class="doc">
+  <dt><strong>end2end</strong>(Boolean)</dt>
+  <dd>Defaults to <code>false</code>.</dd>
+
+  <dt><strong>groupSize</strong>(Array)</dt>
+  <dd>Defaults to <code>[]</code>.</dd>
+
+  <dt><strong>visible</strong>(Integer)</dt>
+  <dd>Defaults to <code>null</code>.</dd>
+</dl>
+
+<h2 id="api.effect.accordion">Accordion Effects</h2>
+
+<h3>Configurations</h3>
+<dl class="doc">
+  <dt><strong>initIndex</strong>(Integer)</dt>
+  <dd>The new value <code>null</code> is available. If set to <code>null</code>, panels are all hidden when the page loads.</dd>
+
+  <dt><strong>multiple</strong>(Boolean)</dt>
+  <dd>Defaults to <code>false</code>.</dd>
+
+  <dt><strong>customProps</strong>(Object)</dt>
+  <dd>Defaults to <code>{}</code>.</dd>
+</dl>
+
+<h2 id="api.plugin.autoplay">Autoplay Plugin</h2>
+
+<h3>Configurations</h3>
+<dl class="doc">
+  <dt><strong>autoplay</strong>(Boolean)</dt>
+  <dd>Defaults to <code>false</code>.</dd>
+
+  <dt><strong>interval</strong>(Number)</dt>
+  <dd>Defaults to <code>3</code> seconds.</dd>
+
+  <dt><strong>pauseOnHover</strong>(Boolean)</dt>
+  <dd>Defaults to <code>true</code>.</dd>
+</dl>
+
+<h3>Property</h3>
+<dl class="doc">
+  <dt><strong>paused</strong>(Returns: Boolean)</dt>
+</dl>
+
+<h3>Methods</h3>
+<dl class="doc">
+  <dt><strong>play()</strong>(Returns: API)</dt>
+
+  <dt><strong>pause()</strong>(Returns: API)</dt>
+</dl>
+
+<h2 id="api.plugin.carousel">Carousel Plugin</h2>
+
+<h3>Configurations</h3>
+<dl class="doc">
+  <dt><strong>prev</strong>(Selector, jQuery)</dt>
+  <dd>Defaults to <code>null</code>.</dd>
+
+  <dt><strong>next</strong>(Selector, jQuery)</dt>
+  <dd>Defaults to <code>null</code>.</dd>
+</dl>
+
+<h3>Properties</h3>
+<dl class="doc">
+  <dt><strong>prevBtn</strong>(Returns: jQuery)</dt>
+
+  <dt><strong>nextBtn</strong>(Returns: jQuery)</dt>
+</dl>
+
+</section>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

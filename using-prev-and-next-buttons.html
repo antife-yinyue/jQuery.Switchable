@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Using prev/next buttons - jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+
+  <!-- styles for this demo -->
+  <style>
+  #slide {
+    /* Required Styles */
+    position:relative;
+    width:550px;
+    height:310px;
+    overflow:hidden;
+
+    border:10px solid #444;
+    border-radius:5px;
+    box-shadow:0 0 6px rgba(0, 0, 0, .4);
+  }
+  #slide img {
+    display:block;
+    position:absolute;
+    width:550px;
+    height:310px;
+  }
+  .switchable-triggers {
+    width:100%;
+    height:30px;
+    overflow-y:hidden;
+    line-height:30px;
+    text-align:center;
+  }
+  .switchable-triggers li {
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin:0 3px;
+    color:#c6c6c6;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 2px 1px rgba(0, 0, 0, .4);
+    cursor:pointer;
+  }
+  .switchable-triggers li.current {
+    color:#8ab516;
+  }
+  </style>
+
+  <div id="slide">
+    <img src="/images/p1.jpg" />
+    <img src="/images/p2.jpg" />
+    <img src="/images/p3.jpg" />
+    <img src="/images/p4.jpg" />
+    <img src="/images/p5.jpg" />
+    <img src="/images/p6.jpg" />
+    <img src="/images/p7.jpg" />
+  </div>
+  <div class="button">
+    <a href="#" id="prev" class="float-l disabled">Prev</a>
+    <a href="#" id="next" class="float-r">Next</a>
+  </div>
+
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  <pre class='sh_javascript'><code>$(function() {
+</code><code>  $('#slide').switchable({
+</code><code>    triggers: '&amp;bull;',
+</code><code>    putTriggers: 'insertBefore',
+</code><code>    effect: 'fade',
+</code><code>    /* fade effect only supports steps == 1 */
+</code><code>    // steps: 1,
+</code><code>    easing: 'ease-in-out',
+</code><code>    loop: false,
+</code><code>    prev: '#prev',
+</code><code>    next: $('#next'),
+</code><code>    onSwitch: function(event, currentIndex) {
+</code><code>      var api = this;
+</code><code>      api.prevBtn.toggleClass('disabled', currentIndex === 0);
+</code><code>      api.nextBtn.toggleClass('disabled', currentIndex === api.length - 1);
+</code><code>    }
+</code><code>  });
+</code><code>});</code></pre>
+
+  
+  <!-- Highlight CSS -->
+  <pre class='sh_css'><code>/* Required Styles */
+</code><code>#slide {
+</code><code>  position: relative;
+</code><code>  width: 550px;
+</code><code>  height: 310px;
+</code><code>  overflow: hidden;
+</code><code>}
+</code><code>#slide img {
+</code><code>  position: absolute;
+</code><code>}</code></pre>
+  
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/javascripts/jquery.switchable.min.js"></script>
+<script>
+$(function() {
+  $('#slide').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    effect: 'fade',
+    /* fade effect only supports steps == 1 */
+    // steps: 1,
+    easing: 'ease-in-out',
+    loop: false,
+    prev: '#prev',
+    next: $('#next'),
+    onSwitch: function(event, currentIndex) {
+      var api = this;
+      api.prevBtn.toggleClass('disabled', currentIndex === 0);
+      api.nextBtn.toggleClass('disabled', currentIndex === api.length - 1);
+    }
+  });
+});
+</script>
+<script src="/javascripts/sh.min.js"></script>
+<script>var disqus_shortname="jsw0528",disqus_identifier=disqus_url="http://switchable.mrzhang.me/using-prev-and-next-buttons.html",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

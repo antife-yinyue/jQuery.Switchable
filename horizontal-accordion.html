@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Horizontal accordion - jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+
+  <!-- styles for this demo -->
+  <style>
+  #accordion {
+    width:710px;
+    height:310px;
+    overflow:hidden;
+  }
+  #accordion li {
+    position:relative;
+    float:left;
+    height:100%;
+    border:0;/* required */
+  }
+  #accordion img {
+    display:block;
+    width:550px;
+    height:310px;
+  }
+  #accordion b {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:38px;
+    height:100%;
+    border-left:2px solid #323232;
+    background:url(about:blank)\9;
+    cursor:pointer;
+  }
+  :root #accordion b { background:url(about:blank); }
+
+  .demo {
+    width: 720px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  </style>
+
+  <ul class="clearfix" id="accordion">
+    
+    <li>
+      <img src="/images/p1.jpg" />
+      <b></b>
+    </li>
+    
+    <li>
+      <img src="/images/p2.jpg" />
+      <b></b>
+    </li>
+    
+    <li>
+      <img src="/images/p3.jpg" />
+      <b></b>
+    </li>
+    
+    <li>
+      <img src="/images/p4.jpg" />
+      <b></b>
+    </li>
+    
+    <li>
+      <img src="/images/p5.jpg" />
+      <b></b>
+    </li>
+    
+  </ul>
+
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  <pre class='sh_javascript'><code>$(function() {
+</code><code>  var Accordion = $('#accordion');
+</code><code>
+</code><code>  Accordion.switchable({
+</code><code>    triggers: Accordion.find('b'),
+</code><code>    triggerType: 'click',
+</code><code>    effect: 'horizAccordion',
+</code><code>    easing: 'cubic-bezier(.1, .5, .1, 1)',
+</code><code>    customProps: {
+</code><code>      width: '40px'
+</code><code>    },
+</code><code>    autoplay: true,
+</code><code>    beforeSwitch: function(event, toIndex) {
+</code><code>      // if beforeSwitch() returns 'false', the switch event stops
+</code><code>      return this.index !== toIndex;
+</code><code>    }
+</code><code>  });
+</code><code>});</code></pre>
+
+  
+  <!-- Highlight CSS -->
+  <pre class='sh_css'><code>/*
+</code><code> * Remember to set the border-width for the accordion's panels,
+</code><code> * even without border
+</code><code> */
+</code><code>#accordion li {
+</code><code>  border: 0;
+</code><code>}</code></pre>
+  
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/javascripts/jquery.switchable.min.js"></script>
+<script>
+$(function() {
+  var Accordion = $('#accordion');
+
+  Accordion.switchable({
+    triggers: Accordion.find('b'),
+    triggerType: 'click',
+    effect: 'horizAccordion',
+    easing: 'cubic-bezier(.1, .5, .1, 1)',
+    customProps: {
+      width: '40px'
+    },
+    autoplay: true,
+    beforeSwitch: function(event, toIndex) {
+      // if beforeSwitch() returns 'false', the switch event stops
+      return this.index !== toIndex;
+    }
+  });
+});
+</script>
+<script src="/javascripts/sh.min.js"></script>
+<script>var disqus_shortname="jsw0528",disqus_identifier=disqus_url="http://switchable.mrzhang.me/horizontal-accordion.html",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

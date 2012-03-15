@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Three kinds of scrollable - jQuery.Switchable - Tabs, Slide, Scrollable & Accordion, 4 in 1</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-16622252-4"]),_gaq.push(["_addOrganic","baidu","wd"]),_gaq.push(["_trackPageview"]),location.hostname!=="localhost"&&function(){var a=document.createElement("script");a.async=!0,a.src="http://www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">
+    <em class="do"></em>
+    <em class="re"></em>
+    <em class="mi"></em>
+    <strong>jQuery.Switchable</strong>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<nav>
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/#demos" class="current">DEMO</a></li>
+    <li><a href="https://github.com/jsw0528/jQuery.Switchable/downloads" target="_blank">DOWNLOAD</a></li>
+  </ul>
+</nav>
+
+<section class="demo">
+
+  <!-- styles for this demo -->
+  <style>
+  /**
+   * Horizontal
+   */
+  #scrollable-1 {
+    position:relative;
+    width:650px;
+    height:125px;
+    overflow:hidden;
+  }
+  #scrollable-1 li {
+    float:left;
+    margin-right:15px;
+  }
+
+  /**
+   * Vertical, Single-col
+   */
+  #scrollable-2 {
+    position:relative;
+    height:260px;
+    overflow:hidden;
+  }
+  #scrollable-2 li {
+    margin-bottom:15px;
+  }
+
+  /**
+   * Vertical, Multi-col
+   */
+  #scrollable-3 {
+    position:relative;
+    height:125px;
+    overflow:hidden;
+  }
+  #scrollable-3 li {
+    float:left;
+    margin:0 15px 15px 0;
+  }
+
+  .demo { width: 650px; }
+  .demo img {
+    display:block;
+    width:195px;
+    height:110px;
+    border:5px solid #444;
+    border-radius:4px;
+    box-shadow:0 0 6px rgba(0, 0, 0, .4);
+  }
+  .switchable-triggers li {
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin:0 3px;
+    color:#c6c6c6;
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:0 2px 1px rgba(0, 0, 0, .4);
+    cursor:pointer;
+  }
+  .switchable-triggers li.current { color:#8ab516; }
+  </style>
+
+  <!-- Horizontal -->
+  <div id="scrollable-1">
+    <ul>
+      <li><img src="/images/p1.jpg" /></li>
+      <li><img src="/images/p2.jpg" /></li>
+      <li><img src="/images/p3.jpg" /></li>
+      <li><img src="/images/p4.jpg" /></li>
+      <li><img src="/images/p5.jpg" /></li>
+      <li><img src="/images/p6.jpg" /></li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- Vertical, Single-col -->
+  <div id="scrollable-2">
+    <ul>
+      <li><img src="/images/p1.jpg" /></li>
+      <li><img src="/images/p2.jpg" /></li>
+      <li><img src="/images/p3.jpg" /></li>
+      <li><img src="/images/p4.jpg" /></li>
+      <li><img src="/images/p5.jpg" /></li>
+      <li><img src="/images/p6.jpg" /></li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- Vertical, Multi-col -->
+  <div id="scrollable-3">
+    <ul>
+      <li><img src="/images/p1.jpg" /></li>
+      <li><img src="/images/p2.jpg" /></li>
+      <li><img src="/images/p3.jpg" /></li>
+      <li><img src="/images/p4.jpg" /></li>
+      <li><img src="/images/p5.jpg" /></li>
+      <li><img src="/images/p6.jpg" /></li>
+    </ul>
+  </div>
+
+</section>
+
+<section>
+  <header>
+    <h1>Usage</h1>
+  </header>
+
+  <!-- Highlight JS -->
+  <pre class='sh_javascript'><code>$(function() {
+</code><code>  /**
+</code><code>   * Horizontal
+</code><code>   */
+</code><code>  $('#scrollable-1').switchable({
+</code><code>    triggers: '&amp;bull;',
+</code><code>    putTriggers: 'insertBefore',
+</code><code>    panels: 'li',
+</code><code>    easing: 'ease-in-out',
+</code><code>
+</code><code>    effect: 'scrollLeft',
+</code><code>    steps: 2,
+</code><code>    visible: 3, // important
+</code><code>    end2end: true,
+</code><code>
+</code><code>    autoplay: true
+</code><code>  });
+</code><code>
+</code><code>  /**
+</code><code>   * Vertical, Single-col
+</code><code>   */
+</code><code>  $('#scrollable-2').switchable({
+</code><code>    triggers: '&amp;bull;',
+</code><code>    putTriggers: 'insertBefore',
+</code><code>    panels: 'li',
+</code><code>    easing: 'ease-in-out',
+</code><code>
+</code><code>    effect: 'scrollUp',
+</code><code>    steps: 2,
+</code><code>    visible: 2, // important
+</code><code>
+</code><code>    autoplay: true
+</code><code>  });
+</code><code>
+</code><code>  /**
+</code><code>   * Vertical, Multi-col
+</code><code>   */
+</code><code>  $('#scrollable-3').switchable({
+</code><code>    triggers: '&amp;bull;',
+</code><code>    putTriggers: 'insertBefore',
+</code><code>    panels: 'li',
+</code><code>    easing: 'ease-in-out',
+</code><code>
+</code><code>    effect: 'scrollDown',
+</code><code>    steps: 2,
+</code><code>    visible: 2, // important
+</code><code>    end2end: true,
+</code><code>    groupSize: [440, 135], // required
+</code><code>    // 440 = 2 * ( 195[width] + 10[border] + 15[margin] )
+</code><code>    // 135 = 110[height] + 10[border] + 15[margin]
+</code><code>
+</code><code>    autoplay: true
+</code><code>  });
+</code><code>});</code></pre>
+
+  
+  <!-- Highlight CSS -->
+  <pre class='sh_css'><code>/* Required Styles */
+</code><code>
+</code><code>/**
+</code><code> * Horizontal
+</code><code> */
+</code><code>#scrollable-1 {
+</code><code>  position: relative;
+</code><code>  width: 650px;
+</code><code>  height: 125px;
+</code><code>  overflow: hidden;
+</code><code>}
+</code><code>#scrollable-1 li {
+</code><code>  float: left;
+</code><code>}
+</code><code>
+</code><code>/**
+</code><code> * Vertical, Single-col
+</code><code> */
+</code><code>#scrollable-2 {
+</code><code>  position: relative;
+</code><code>  height: 260px;
+</code><code>  overflow: hidden;
+</code><code>}
+</code><code>
+</code><code>/**
+</code><code> * Vertical, Multi-col
+</code><code> */
+</code><code>#scrollable-3 {
+</code><code>  position: relative;
+</code><code>  height: 125px;
+</code><code>  overflow: hidden;
+</code><code>}
+</code><code>#scrollable-3 li {
+</code><code>  float: left;
+</code><code>}</code></pre>
+  
+</section>
+
+<section id="disqus_thread"></section>
+
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/javascripts/jquery.switchable.min.js"></script>
+<script>
+$(function() {
+  /**
+   * Horizontal
+   */
+  $('#scrollable-1').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollLeft',
+    steps: 2,
+    visible: 3, // important
+    end2end: true,
+
+    autoplay: true
+  });
+
+  /**
+   * Vertical, Single-col
+   */
+  $('#scrollable-2').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollUp',
+    steps: 2,
+    visible: 2, // important
+
+    autoplay: true
+  });
+
+  /**
+   * Vertical, Multi-col
+   */
+  $('#scrollable-3').switchable({
+    triggers: '&bull;',
+    putTriggers: 'insertBefore',
+    panels: 'li',
+    easing: 'ease-in-out',
+
+    effect: 'scrollDown',
+    steps: 2,
+    visible: 2, // important
+    end2end: true,
+    groupSize: [440, 135], // required
+    // 440 = 2 * ( 195[width] + 10[border] + 15[margin] )
+    // 135 = 110[height] + 10[border] + 15[margin]
+
+    autoplay: true
+  });
+});
+</script>
+<script src="/javascripts/sh.min.js"></script>
+<script>var disqus_shortname="jsw0528",disqus_identifier=disqus_url="http://switchable.mrzhang.me/three-kinds-of-scrollable.html",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
+
+<footer class="footer">
+  <div class="inner">
+    <p>
+      &copy;2010-2012 wǒ_is神仙
+      &nbsp;-&nbsp;
+      Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+    </p>
+    <em>CSS3 and HTML5 inside.</em>
+  </div>
+</footer>
+
+<iframe src="/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>
